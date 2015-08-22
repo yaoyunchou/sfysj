@@ -6,7 +6,7 @@ define(function(require,exports,module){
 	
 	//console.log(yao);
      
-
+   var angular=this.angular;
   var yao = angular.module('myapp', []);  
   
   yao.controller('PhoneListCtrl', ['$scope',  function($scope) {   $scope.phones = [
