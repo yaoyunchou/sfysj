@@ -1,15 +1,16 @@
 define(function(require,exports,module){
-	require("jquery");
+	//require("jquery");
 	require("ag");
+	
 	var $=this.jQuery,jQuery=this.jQuery;
 	
-	
+	console.log($)
 	//console.log(yao);
      
    var angular=this.angular;
-  var yao = angular.module('myapp', []);  
+  var hjf = angular.module('myapp', []);  
   
-  yao.controller('BannerCtrl', ['$scope','$http' , function($scope,$http) {  
+  hjf.controller('BannerCtrl', ['$scope','$http' , function($scope,$http) {  
   	$scope.phones = [
 		    {"name": "Nexus S",
 		     "snippet": "Fast just got faster with Nexus S.","age":"30"},

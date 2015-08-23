@@ -1,4 +1,4 @@
-.header{ width: 100%; height: 4.5rem; line-height: 4.5rem; padding: 0 1rem; box-sizing: border-box; background:#FFFFFF url(../img/a002.png) repeat-x bottom; position:relative;text-align: center; position: fixed; top: 0; z-index: 10;} 
+.header{ width: 100%; height: 4.5rem; line-height: 4.5rem; padding: 0 1rem; box-sizing: border-box; background:#FFFFFF url(../img/a002.png) repeat-x bottom; text-align: center; position: absolute; left:0; top: 0; z-index: 10;} 
 .header img{ height: 2rem; width: 1rem;}
 .header .icon{ display: inline-block; width: 5rem; height: 1rem; position: absolute;padding: 0.5rem 0 0 1rem;left: 0; top: 0px;} 
 .header span{  font-size: 1.8rem; line-height: 4rem;  }
@@ -7,7 +7,7 @@
 .margintop4e{ margin-top: 4rem !important;}
 .margintop9e{ margin-top: 9rem !important;}
 input{ width: 100%;}
-.register{ font-size: 1.3rem; float: right; color: #1B8BD7; display: inline-block; margin-top: 1.6rem;}
+.register{ font-size: 1.3rem; float: right; color: #1B8BD7; display: inline-block;}
 .loginbox{ padding:7.1rem 1rem 0; }
 .loginboxin{ border-radius: 10px; background: #ffffff; padding: 0 1.6rem;}
  input[type='text'], input[type='tel'],input[type='password']{display: block;  font-size: 1.2rem;   height: 5.6rem;border:none; }
@@ -17,8 +17,8 @@ input{ width: 100%;}
 
 .wjmm{ float: right; font-size: 1.2rem; color: #8F8F8F; padding-top: 1.2rem;;}
 .loginsim{ box-sizing: border-box; clear: both; width: 100%; border: none; background: #89c1e7; display: block; padding: 0 1rem; border-radius: 5px; height: 4.1rem; line-height: 100%; text-align: center; font-size: 2rem; margin-top: 7rem; color: #FFFFFF;}
-.all{margin-left: 60%; width: 100%;}
-.allbox{ width: 100%; overflow: hidden;}
+.all{width: 100%;box-shadow: 1px -1px 10px 1px #cdcccd; position: relative;}
+.allbox{ width: 100%; overflow: hidden; }
 
 
 .registerbox{ padding: 6.3rem 1rem 0;box-sizing:border-box;}
@@ -52,7 +52,7 @@ input{ width: 100%;}
 .smrzbz span{ display: table-cell; font-size: 1.2rem; width: 33.333%; text-align: center; line-height: 4rem;}
 .smrzbz span.on{ color:#1B8BD7 ;}
 .smrzf{ border-radius: 5px; overflow: hidden; padding: 0 1rem; margin-bottom: 2rem; background: #FFFFFF;}
-.smrzbz span.active{ background:#1c8cd8 ; color: #FFFFFF;}
+.smrzbz span.active{ ballboxackground:#1c8cd8 ; color: #FFFFFF;}
 
 
 
@@ -63,3 +63,14 @@ input{ width: 100%;}
     url('../font/.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
     url('../font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
+
+
+/* 左边的导航*/
+.leftnav{ width:50%; position: absolute; height: 100%; left: -50%; top: 0; }
+.leftnav h2{  height: 8.5rem;  padding: 2.2rem 0 0 2rem;}
+.txiang{ height: 5.3rem; line-height: 5.3rem; font-size: 1.6rem;}
+.txiang img{ height: 100%; width: auto; float: left; margin-right:10%;}
+.txiang a{ color: #000000;}
+.leftnav ul{ padding: 3rem 0 0 2.3rem;}
+.leftnav ul li{ height: 2rem; line-height: 2rem; font-size: 1.6rem; margin-bottom: 3rem;}
+.leftnav ul li img{ height: 100%; float: left; width: auto; margin-right: 1.6rem;}
