@@ -9,14 +9,22 @@ define(function(require,exports,module){
    var angular=this.angular;
   var yao = angular.module('myapp', []);  
   
-  yao.controller('PhoneListCtrl', ['$scope',  function($scope) {   $scope.phones = [
+  yao.controller('PhoneListCtrl', ['$scope','$http' , function($scope,$http) {  
+  	$scope.phones = [
 		    {"name": "Nexus S",
-		     "snippet": "Fast just got faster with Nexus S."},
+		     "snippet": "Fast just got faster with Nexus S.","age":"30"},
 		    {"name": "Motorola XOOM™ with Wi-Fi",
-		     "snippet": "The Next, Next Generation tablet."},
+		     "snippet": "The Next, Next Generation tablet.","age":"20"},
 		    {"name": "MOTOROLA XOOM™",
-		     "snippet": "The Next, Next Generation tablet."}
-		  ];               
+		     "snippet": "The Next, Next Generation tablet.","age":"22"}
+		  ];        
+	 $http.get('../php/postandget.php?url=https://www.p2pdi.com/appinterface/indexbanner.json').success(function(data) {
+		    console.log(data);
+		   $scope.phone = data;
+		    
+		  });
+    $scope.hjf=
+		   $scope.orderProp = 'age';
   }]);  
  
 });

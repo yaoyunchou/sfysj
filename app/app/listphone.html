@@ -18,11 +18,17 @@
 	    </script>
 	</head>
 <body ng-controller="PhoneListCtrl">
-
+  serch: <input type="text" ng-model="seach" name="" id="" value="" />
+  Sort by:
+<select ng-model="orderProp">
+  <option value="name">Alphabetical</option>
+  <option value="age">Newest</option>
+</select>
   <ul>
-    <li ng-repeat="phone in phones">
+    <li ng-repeat="phone in phones| filter:seach|orderBy:orderProp">
       {{phone.name}}
     <p>{{phone.snippet}}</p>
+    <p>{{phone.age}}</p>
     </li>
   </ul>
 	</body>
