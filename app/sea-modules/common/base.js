@@ -48,11 +48,11 @@ if($('input').val()){
 		$('input').addClass("inputbler");
 		
 	}
-$(document).stop().scroll(function(){
-     
-	$('.header').css('top',$(this).scrollTop());
-	
-})
+//$(document).stop().scroll(function(){
+//   
+//	$('.header').css('top',$(this).scrollTop());
+//	
+//})
 
 
 
@@ -95,10 +95,10 @@ $(document).stop().scroll(function(){
 					startY =  point.pageY;
 			
 			
-			       console.log(startX);
+			      /* console.log(startX);
 			       $('.sx').html(startX);
 			       $('.sy').html(startY);
-			        console.log(startY);
+			        console.log(startY);*/
 					//添加“触摸移动”事件监听
 					window.document.addEventListener(touchMove, tMove,false);
 					//添加“触摸结束”事件监听
@@ -116,15 +116,21 @@ $(document).stop().scroll(function(){
 					if ( typeof scrollY == 'undefined') { scrollY = !!( scrollY || Math.abs(distX) < Math.abs(distY) ); }
 					
 					if(startX<100&&distX>0){
-						console.log("yao");
-						console.log("我的高度"+$(".all").height())
-						$('.all').animate({'marginLeft':'50%'},200);
+						/*console.log("yao");
+						console.log("我的高度"+$(".all").height())*/
+						$('.all').animate({'marginLeft':'50%'},20);
+						$(".header").animate({'marginLeft':'50%'},20);
+						$('.leftnav').css("position","fixed").animate({'left':'0'},20);
+					}else if(distX<0){
+						$('.leftnav').animate({'left':'-50%'},20);
+						$('.all').animate({'marginLeft':'0'},20);
+						$(".header").animate({'marginLeft':'0'},20);
 						
 					}
-					console.log(distX);
+					/*console.log(distX);
 			        console.log(distY);
 			         $('.mx').html(distX);
-			       $('.my').html(distY);
+			       $('.my').html(distY);*/
 				}
 
 				//触摸结束函数
@@ -135,10 +141,10 @@ $(document).stop().scroll(function(){
 			
 					window.document.removeEventListener(touchMove, tMove, false);
 					window.document.removeEventListener(touchEnd, tEnd, false);
-					 console.log(startX);
+					/* console.log(startX);
 			        console.log(startY);
 			          $('.ex').html(startX);
-			       $('.ey').html(startY);
+			       $('.ey').html(startY);*/
 				}
               
    
