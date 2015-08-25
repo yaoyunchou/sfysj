@@ -43,11 +43,9 @@
 			   
 			    </div>
 			    <ol id="circle">
-			    	<li class="current"></li>
-			    	<li></li>
-			    	<li></li>
-			    	<li></li>
-			    	<li></li>
+			    	
+			    	<li ng-repeat="img in hjfimgs" ></li>
+			    	
 			    </ol>
 		  </div>
 	   </div>
@@ -55,54 +53,26 @@
 	   	  <p><a href="#" class="on">P2P项目</a><a href="#">转让专区</a><a href="#" class="last">其它</a></p>
 	   </div>
 	   <article class="indexbox">
-	   	<div class="conin">
+	   	<div class="conin" ng-controller="IndexTenderCtrl">
 				<ul>
-					<li>
+					<li ng-repeat="tender in tenders">
 						<div class="litop">
 							<div class="litopL">
-								<span>16</span>%   <span>12</span>个月   <span>6</span>万    
+								<span ng-bind="tender.borrow_year_rate"></span>%   <span ng-bind="tender.borrow_period"></span>个月   <span > {{tender.borrow_money/10000}}</span>万    
 							</div>
 							<div class="litopr">
 								
-									 <canvas onclick="alert(jdt.vesition)"  id="jdt"></canvas>
+									 <canvas onclick="alert(jdt.vesition)" class="jdt"  id="jdt"></canvas>
 							</div>
 						</div>
 						<div class="btom">
-							<p class="fl"<b>ID287</b> | 车辆抵押贷</p>   <span class="fr"> <em></em>每月付息到期还本</span>
+							<p class="fl"<b>ID{{tender.borrow_id}}</b> | {{tender.borrow_type_text}}</p>   <span class="fr"> <em></em>{{tender.repayment_type_text}}</span>
 						</div>
 					</li>
 					
 				</ul>
 			</div>
-		   	<form action="" method="post" class="loginboxin">
-		   	   <input type="text" name="" id="" value="" placeholder="请输入手机号码"  class="usename borderbottom"/>
-		   	   <input type="password" name="" id="" value="" placeholder="请输入登录密码"  class="password"/>
-		   </form>
-	   				<a class="wjmm" href="rigester.html">忘记密码？</a>
-	   	   <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	  		 <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
+		   	
 	   </article>
 	   <div class="bttom">
 	   	

@@ -31,7 +31,7 @@ $(window).on('resize',function(){
 window.onload=function(){
     $(".loading").hide();
     $().yaotoch();
-    jdt.yuancanvas("jdt",80);
+   
     
      
 }
@@ -692,8 +692,10 @@ if ( window.jQuery || window.Zepto ) {
   })( window.jQuery || window.Zepto )
 }
 
-
-var slider =Swipe(document.getElementById('slider'), { // 最大盒子的id
+exports.mydo=function(){
+	
+	if($('.swipe-wrap figure').length>1){
+	var slider =Swipe(document.getElementById('slider'), { // 最大盒子的id
 	    auto: 3000,// 3秒 自动切换
 	    continuous: true,
 	    callback: function(pos) {  // 返回值  pos 是返回当前的索引值
@@ -709,4 +711,12 @@ var slider =Swipe(document.getElementById('slider'), { // 最大盒子的id
 	    }
 	  });
 	var circle = document.getElementById('circle').getElementsByTagName('li');//获取li 的数组
+	return 0;
+}
+
+	
+	
+}
+
+
 });

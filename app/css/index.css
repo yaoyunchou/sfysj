@@ -85,7 +85,7 @@ input{ width: 100%;}
 .iheader .banner{  margin: 1.3rem auto 0;  display:block; height: 2.1rem; width: auto;}
 /*index页面*/
 .swipe-wrap {overflow: hidden;	position: relative;	}
-.swipe-wrap img{width: 100%;  /*让我们的图片宽度是100%*/	max-height: 12.4rem;}
+.swipe-wrap img{width: 100%;  /*让我们的图片宽度是100%*/	height: 12.4rem;}
 .swipe-wrap > figure {float: left;	width: 100%;position: relative;}
 	
 #circle{position: absolute; left:35%; height: 13px; bottom: 15px; z-index: 10;}
