@@ -17,7 +17,7 @@ input{ width: 100%;}
 
 .wjmm{ float: right; font-size: 1.2rem; color: #8F8F8F; padding-top: 1.2rem;;}
 .loginsim{ box-sizing: border-box; clear: both; width: 100%; border: none; background: #89c1e7; display: block; padding: 0 1rem; border-radius: 5px; height: 4.1rem; line-height: 100%; text-align: center; font-size: 2rem; margin-top: 7rem; color: #FFFFFF;}
-.all{width: 100%;box-shadow: 1px -1px 10px 1px #cdcccd; position: relative;}
+.all{width: 100%;box-shadow: 1px -1px 10px 1px #cdcccd; position: relative;  overflow: hidden;}
 .allbox{ width: 100%; overflow: hidden; }
 
 
@@ -78,8 +78,40 @@ input{ width: 100%;}
 
 
 /*首页类型的头部样式*/
-.iheader{ height: 4.8rem;  background: #FFFFFF; overflow: hidden;}
+.indexbox{ padding:1rem 1rem 0; }
+.iheader{ height: 4.8rem;  width: 100%; background: #FFFFFF; overflow: hidden; position: fixed; z-index: 1000;}
 .iheader a.icon{ position: absolute; left: 2.5rem; top:1.2rem;}
 .iheader a img{ height:2.1rem; width: auto ;}
 .iheader .banner{  margin: 1.3rem auto 0;  display:block; height: 2.1rem; width: auto;}
 /*index页面*/
+.swipe-wrap {overflow: hidden;	position: relative;	}
+.swipe-wrap img{width: 100%;  /*让我们的图片宽度是100%*/	max-height: 12.4rem;}
+.swipe-wrap > figure {float: left;	width: 100%;position: relative;}
+	
+#circle{position: absolute; left:35%; height: 13px; bottom: 15px; z-index: 10;}
+#circle li{width: 13px; background-color: #fff;float: left; margin: 0 5px; height: 13px; border-radius: 50%;}
+#circle li.current{background-color:pink;}
+.swipe{ position: relative;}
+.loopimg{ height:12.4rem; margin-top: 6rem; overflow: hidden;}
+.swipe figure{ margin: 0; padding: 0;} 
+
+
+.tab{ height: 4.3rem; padding: 0.4rem; border-bottom: 1px solid  ;}
+.tab p{ border:2px solid #1B8BD7; height: 2.5rem; line-height: 2.5rem; overflow: hidden; border-radius: 10px;}
+.tab p a{ color: #1B8BD7; display: inline-block; width: 33.3%; text-align: center; border-right: 2px solid #1B8BD7;;}
+.tab p a.last{ border-right: none;}
+.tab p a:hover,.tab p a.on{ background: #1B8BD7; color: #FFFFFF;}
+
+/*index  li*/
+.conin li{ height: 11.6rem; list-style: none; padding: 0.5rem; background: #FFFFFF; border-radius: 10px; margin-bottom: 0.5rem;}
+.conin li span{ font-size: 3em; color: #1B8BD7;}
+.litopL{ margin-top: 20px; float: left;}
+.litopr{  width: 6rem; height: 6rem;  float: right; margin-left: 10px; overflow: hidden; margin-top:0.6rem;}
+
+
+
+/*.litopr canvas{ width:128px; height:128px;  }*/
+.litop{	height: 7rem; border-bottom: 1px solid #C0C0C0; overflow: hidden;}
+.conin .btom span{  font-size: 1em;}
+.conin .btom{ height: 3.6rem; line-height: 3.6rem;}
+.conin .btom span em{width:10px; height: 10px; border-radius: 5px; background: #4fcab8; display: inline-block; margin-right: 2px;}
