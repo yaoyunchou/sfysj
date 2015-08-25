@@ -28,44 +28,60 @@
 	   	   <img class="banner" src="../img/a005.jpg"/>
 	   	
 	   </header>
-	   <article class="loginbox">
-		   	<form action="" method="post" class="loginboxin">
-		   	   <input type="text" name="" id="" value="" placeholder="请输入手机号码"  class="usename borderbottom"/>
-		   	   <input type="password" name="" id="" value="" placeholder="请输入登录密码"  class="password"/>
-		   </form>
-	   				<a class="wjmm" href="rigester.html">忘记密码？</a>
-	   	   <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	  		 <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	     <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
-	   	    <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
+	   <div class="loopimg" ng-controller="BannerCtrl">
+	   	   <div id="slider" class="swipe">
+			    <div class="swipe-wrap" >
+			      <figure  ng-repeat="img in hjfimgs" >
+			        <div class="wrap">
+			        
+			           <img src= {{img.image_resource_url}}    />
+			        </div>
+			      </figure>
+			     
+			    
+			   
+			    </div>
+			    <ol id="circle">
+			    	
+			    	<li ng-repeat="img in hjfimgs" ></li>
+			    	
+			    </ol>
+		  </div>
+	   </div>
+	   <div class="tab">
+	   	  <p><a href="#" class="on">P2P项目</a><a href="#">转让专区</a><a href="#" class="last">其它</a></p>
+	   </div>
+	   <article class="indexbox">
+	   	<div class="conin" ng-controller="IndexTenderCtrl">
+				<ul>
+					<li ng-repeat="tender in tenders">
+						<div class="litop">
+							<div class="litopL">
+								<span ng-bind="tender.borrow_year_rate"></span>%   <span ng-bind="tender.borrow_period"></span>个月   <span > {{tender.borrow_money/10000}}</span>万    
+							</div>
+							<div class="litopr">
+								
+									 <canvas onclick="alert(jdt.vesition)" class="jdt"  id="jdt"></canvas>
+							</div>
+						</div>
+						<div class="btom">
+							<p class="fl"<b>ID{{tender.borrow_id}}</b> | {{tender.borrow_type_text}}</p>   <span class="fr"> <em></em>{{tender.repayment_type_text}}</span>
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+		   	
 	   </article>
 	   <div class="bttom">
 	   	
 	   </div>
 	  </div>
 	</div>
-	<script src="../sea-modules/seajs/sea.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
+	
+	  
+	   <script src="../sea-modules/seajs/sea.js" type="text/javascript" charset="utf-8"></script>
+	  <script type="text/javascript">
 		seajs.config({
 	    	    base:"../sea-modules",
 	    	    alias:{
@@ -74,10 +90,8 @@
 	    	    	
 	    	    }
 	    	});
-	    	seajs.use(["common/indexController","common/base"])
+	    	seajs.use("common/indexController");
 	</script> 
-	  
-	  
 
 </body>
 

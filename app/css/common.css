@@ -40,6 +40,8 @@ img{
 	width: 100%;
 }
 
+.fl{ float: left;}
+.fr{ float: right;}
 *{
 	box-sizing: border-box;
 	-webkit-user-select:none;
@@ -56,5 +58,5 @@ input[type="button"],
 input{-webkit-appearance:none; border-radius: 1px; font-family: Microsoft YaHei,SimSun,Arial; color: #C6C6CB;}
 .inputbler{ color:#595959}
 html{font-size:62.5%; -webkit-text-size-adjust: none;}
-body{font-size:1.4rem; background:#f4f4f4; color:#666;}
+body{font-size:1.2rem; background:#f4f4f4; color:#666;}
 .bttom{ height: 20px;}
