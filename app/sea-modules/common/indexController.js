@@ -23,10 +23,11 @@ define(function(require,exports,module){
 		    	
 		    	mudo = b.mydo();
 		    	console.log(mudo);
-		    	 jdt.yuancanvas("jdt",80);
-		    },500);
+		    	 
+		    },10);
 		    
 		  });
+		  
     
 		   //$scope.orderProp = 'age';
   }]);
@@ -35,16 +36,20 @@ define(function(require,exports,module){
 	 $http.get('../sea-modules/php/postandget.php?url=https://www.p2pdi.com/appinterface/index.json').success(function(data) {
 		    
 		    
-		    $scope.$watch('ng-cloak',myshow);
-		    var myshow=function(){
-		    	alert("完成了!");
-		    }
+		 
 		   $scope.tenders = data.result.object;
 		    //console.log( $scope.tenders);
-		    
+		    setTimeout(function(){
+		    	for(var i=0; i<$scope.tenders.length;i++){
+		    		alert(($scope.tenders[i].borrow_money-$scope.tenders[i].tenderable_quota)/$scope.tenders[i].borrow_money);
+		    		 jdt.yuancanvas("cv"+$scope.tenders[i].borrow_id,parseInt((($scope.tenders[i].borrow_money-$scope.tenders[i].tenderable_quota)/$scope.tenders[i].borrow_money)*100));
+		    		
+		    	}
+		    	
+		    },10); 
 		    
 		  });
     
-		   //$scope.orderProp = 'age';
+		
   }]);
 });

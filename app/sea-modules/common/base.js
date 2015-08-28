@@ -186,20 +186,25 @@ if($('input').val()){
 	 		canvas.save();//先保存
 	 		canvas.beginPath();
 	 		
-	 		/*canvas.arc(x/2,y/2,x/2-10,0,Math.PI*2,false);
-	 		canvas.lineWidth=10;*/
-	 		canvas.strokeStyle="#efeef3";
+	 		canvas.arc(x/2,x/2,x/2-10,0,Math.PI*2,false);
+	 		canvas.lineWidth=10;
+	 		if(num==100){
+	 			canvas.strokeStyle="#1c8ad7";
+	 		}else{
+	 			canvas.strokeStyle="#efeef3";
+	 		}
 	 		canvas.stroke();
 	 		canvas.font=x/5+"pt 微软雅黑";
 	 		canvas.fillStyle="#1c8ad7";
 	 		canvas.textAlign="center";
 	 		
 	 		canvas.textBaseline="center";
-	 		canvas.fillText(num+"%",x/2,x/2+5)
+	 		canvas.fillText(num+"%",x/2,y/2)
 	 		canvas.beginPath();
 	 		//canvas.rotate(-Math.PI)
 	 		canvas.arc(x/2,x/2,x/2-10,Math.PI*3/2,Math.PI*(2*num/100-0.5),false);
 	 		canvas.lineWidth=x/20;
+	 		if(num)
 	 		canvas.strokeStyle="#1c8ad7";
 	 		canvas.stroke();
 	 		console.log(x+"------"+y);
@@ -695,7 +700,7 @@ if ( window.jQuery || window.Zepto ) {
 exports.mydo=function(){
 	
 	if($('.swipe-wrap figure').length>1){
-	var slider =Swipe(document.getElementById('slider'), { // 最大盒子的id
+	var slider =Swipe(document.getElementById('slider' ), { // 最大盒子的id
 	    auto: 3000,// 3秒 自动切换
 	    continuous: true,
 	    callback: function(pos) {  // 返回值  pos 是返回当前的索引值
