@@ -18,7 +18,7 @@ define(function(require,exports,module){
 		    {"name": "MOTOROLA XOOM™",
 		     "snippet": "The Next, Next Generation tablet.","age":"22"}
 		  ];        
-	 $http.get('../sea-modules/php/postandget.php?url=https://www.p2pdi.com/appinterface/indexbanner.json').success(function(data) {
+	 $http.get('https://www.p2pdi.com/appinterface/indexbanner.json').success(function(data) {
 		    
 		   $scope.hjfimgs = data.result.object;
 		    console.log( $scope.hjfimgs);

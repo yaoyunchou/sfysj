@@ -34,6 +34,11 @@ define(function(require,exports,module){
   	
 	 $http.get('../sea-modules/php/postandget.php?url=https://www.p2pdi.com/appinterface/index.json').success(function(data) {
 		    
+		    
+		    $scope.$watch('ng-cloak',myshow);
+		    var myshow=function(){
+		    	alert("完成了!");
+		    }
 		   $scope.tenders = data.result.object;
 		    //console.log( $scope.tenders);
 		    

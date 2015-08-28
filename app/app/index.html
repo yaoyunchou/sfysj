@@ -28,13 +28,13 @@
 	   	   <img class="banner" src="../img/a005.jpg"/>
 	   	
 	   </header>
-	   <div class="loopimg" ng-controller="BannerCtrl">
+	   <div class="loopimg" ng-cloak   ng-controller="BannerCtrl">
 	   	   <div id="slider" class="swipe">
 			    <div class="swipe-wrap" >
 			      <figure  ng-repeat="img in hjfimgs" >
 			        <div class="wrap">
 			        
-			           <img src= {{img.image_resource_url}}    />
+			           <img ng-src={{img.image_resource_url}}    />
 			        </div>
 			      </figure>
 			     
@@ -43,7 +43,7 @@
 			    </div>
 			    <ol id="circle">
 			    	
-			    	<li ng-repeat="img in hjfimgs" ></li>
+			    	<li ng-repeat="img in hjfimgs" ng-class="{current:$index==0}" ></li>
 			    	
 			    </ol>
 		  </div>
