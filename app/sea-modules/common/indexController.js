@@ -41,7 +41,7 @@ define(function(require,exports,module){
 		    //console.log( $scope.tenders);
 		    setTimeout(function(){
 		    	for(var i=0; i<$scope.tenders.length;i++){
-		    		alert(($scope.tenders[i].borrow_money-$scope.tenders[i].tenderable_quota)/$scope.tenders[i].borrow_money);
+		    	
 		    		 jdt.yuancanvas("cv"+$scope.tenders[i].borrow_id,parseInt((($scope.tenders[i].borrow_money-$scope.tenders[i].tenderable_quota)/$scope.tenders[i].borrow_money)*100));
 		    		
 		    	}
@@ -52,4 +52,5 @@ define(function(require,exports,module){
     
 		
   }]);
+      window.angular.element(document).find("head").prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}  
 });

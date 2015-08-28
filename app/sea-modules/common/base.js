@@ -187,19 +187,19 @@ if($('input').val()){
 	 		canvas.beginPath();
 	 		
 	 		canvas.arc(x/2,x/2,x/2-10,0,Math.PI*2,false);
-	 		canvas.lineWidth=10;
+	 		canvas.lineWidth=x/20;
 	 		if(num==100){
 	 			canvas.strokeStyle="#1c8ad7";
 	 		}else{
 	 			canvas.strokeStyle="#efeef3";
 	 		}
 	 		canvas.stroke();
-	 		canvas.font=x/5+"pt 微软雅黑";
+	 		canvas.font=x/6+"pt 微软雅黑";
 	 		canvas.fillStyle="#1c8ad7";
 	 		canvas.textAlign="center";
 	 		
 	 		canvas.textBaseline="center";
-	 		canvas.fillText(num+"%",x/2,y/2)
+	 		canvas.fillText(num+"%",x/2,x/2+5)
 	 		canvas.beginPath();
 	 		//canvas.rotate(-Math.PI)
 	 		canvas.arc(x/2,x/2,x/2-10,Math.PI*3/2,Math.PI*(2*num/100-0.5),false);

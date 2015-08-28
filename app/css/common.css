@@ -60,3 +60,4 @@ input{-webkit-appearance:none; border-radius: 1px; font-family: Microsoft YaHei,
 html{font-size:62.5%; -webkit-text-size-adjust: none;}
 body{font-size:1.2rem; background:#f4f4f4; color:#666;}
 .bttom{ height: 20px;}
+.ng-cloak{ display: none;}
