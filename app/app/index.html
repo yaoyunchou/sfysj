@@ -57,7 +57,7 @@
 	   <article class="indexbox">
 	   	<div class="conin" ng-controller="IndexTenderCtrl">
 				<ul>
-					<li ng-repeat="tender in tenders">
+					<li ng-repeat="tender in tenders"  ng-click="linkto($index)">
 						<div class="litop">
 							<div class="litopL">
 								<span ng-bind="tender.borrow_year_rate"></span>%   <span ng-bind="tender.borrow_period"></span>个月   <span > {{tender.borrow_money/10000}}</span>万    

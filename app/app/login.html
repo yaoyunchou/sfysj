@@ -5,14 +5,14 @@
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>hello world</title>
     
-    <link rel="stylesheet" type="text/css" href="css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
 </head>
 <body>
 	<div class="allbox">
 		 <div class="all">
 	  	 <header class="header">
-	   	   <a class="icon" href="#"><img src="img/a001.png"/></a>
+	   	   <a class="icon" href="#"><img src="../img/a001.png"/></a>
 	   	  <span>登录</span>
 	   	  <a class="register" href="#">注册</a>
 	   </header>
@@ -25,7 +25,7 @@
 		   	
 		   </form>
 	   				<a class="wjmm" href="rigester.html">忘记密码？</a>
-	   	   <button class="loginsim" onclick="window.location.href='wangjimima.html'">登录</button>
+	   	   <button class="loginsim">登录</button>
 	   </article>
 	   <div class="bttom">
 	   	
@@ -34,8 +34,18 @@
 	</div>
 	 
 	  
-	   <script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+	  <script src="../sea-modules/seajs/sea.js" type="text/javascript" charset="utf-8"></script>
+	  <script type="text/javascript">
+		seajs.config({
+	    	    base:"../sea-modules",
+	    	    alias:{
+	    	    	"jquery": "jquery/jquery.js",
+	    	    	"ag": "angular/angular.js"
+	    	    	
+	    	    }
+	    	});
+	    	seajs.use(["common/base","common/loginController"]);
+	</script> 
 </body>
 
 </html>
