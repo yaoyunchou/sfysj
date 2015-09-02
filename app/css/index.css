@@ -162,3 +162,35 @@ input{ width: 100%;}
 .addbankcardbox ul li span{ float: right; color: #C6C6CB; font-size: 1.3rem;}
 .addbankcardbox ul li input{  width: 21rem; height: 4.8rem; float: left;}
 .addbankcardbox ul li  span{ width: 7.5rem; float: left;}
+
+
+/* w*/
+.bankcarbox {padding: 4.5rem  0 0 0;}
+.bankcarbox ul{ width: 100%; background:#FFFFFF; overflow:hidden; margin-top: 1.5rem;}
+.bankcarbox ul li{  height: 5rem; line-height: 4.9rem; padding: 0 1rem; border-bottom: 1px solid #c8c7cc;}
+.addcar{ height: 4rem; width:22.5rem; text-align: center; color: #0080ff; font-size: 1.6rem; border:1px solid #0080ff; border-radius: 5px; display: block; margin: 2rem auto; cursor: pointer; background: #FFFFFF;}
+.bankcarbox ul li dt{ width:6rem; height: 5rem; float: left;}
+.bankcarbox ul li dt img{ width:3.4rem; margin-top: 0.6rem;}
+.bankcarbox ul li dd{float:left;  line-height:2.5rem; }
+
+
+/*projectdetailbox  */
+.projectdetailbox {padding: 4.5rem  0 0 0;}
+.projectdetailbox .top{ height: 8.5rem; background: #1c8cd8; line-height: 4rem; padding: 0 1rem;}
+.projectdetailbox .top span{ color: #FFFFFF; font-size: 2rem;}
+.projectdetailbox .mid{ padding: 0 1rem; background: #FFFFFF; overflow: hidden;}
+.projectdetailbox .mid ul{ overflow: hidden;}
+.projectdetailbox .mid .detail01 li{ float: left; height: 6.5rem; line-height: 3rem; }
+.projectdetailbox .mid .detail01 li.one{ float: left; width: 14rem; font-size: 1.2rem ; color: #757575; ;}
+.projectdetailbox .mid .detail01 li.one p{color: #282828; }
+.projectdetailbox .mid .detail01 li.one p span{ font-size: 2.3rem;}
+.projectdetailbox .mid .detail01 li.two{ float: left; }
+.projectdetailbox .mid .detail01 li.three{ float: right; min-width: 7rem;}
+.projectdetailbox .mid .detail01 li.two p{color: #ff8d20; font-size: 2.2rem;; }
+.projectdetailbox .mid .detail01 li.three p{color: #282828; }
+.projectdetailbox .mid .detail01 li.three p span{ font-size: 2.3rem;}
+
+.jdt{ height: 3.3rem; margin-top: 2rem; }
+.jdt_l{ float: left; width: 71%; height: 0.6rem; border-radius: 0.3rem; background: #d2d2d2; margin-top: 1.4rem;}
+.jdt_l p{ height: 0.6rem; width: 50%; border-radius: 0.3rem; background: #1c8cd8;}
+.jdt_r{ float: left; margin-left: 5%; line-height: 3.3rem; color:#1b8cd8; font-size: 2rem;}
