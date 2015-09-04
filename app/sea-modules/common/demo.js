@@ -9,11 +9,11 @@ define(function(require,exports,module){
    var angular=this.angular;
   var yao = angular.module('myapp',吗 []);  
   
-<<<<<<< HEAD
+
   yao.controller('PhoneListCtrl', ['$scope','$http' , function($scope,$http) {  
-=======
+
   yao.controller('BannerCtrl', ['$scope','$http' , function($scope,$http) {  
->>>>>>> branch 'master' of https://github.com/yaoyunchou/sfysj.git
+
   	$scope.phones = [
 		    {"name": "Nexus S",
 		     "snippet": "Fast just got faster with Nexus S.","age":"30"},
@@ -22,21 +22,21 @@ define(function(require,exports,module){
 		    {"name": "MOTOROLA XOOM™",
 		     "snippet": "The Next, Next Generation tablet.","age":"22"}
 		  ];        
-<<<<<<< HEAD
+
 	 $http.get('../php/postandget.php?url=https://www.p2pdi.com/appinterface/indexbanner.json').success(function(data) {
 		    console.log(data);
 		   $scope.phone = data;
 		    
 		  });
     $scope.hjf=
-=======
+
 	 $http.get('https://www.p2pdi.com/appinterface/indexbanner.json').success(function(data) {
 		    
 		   $scope.hjfimgs = data.result.object;
 		    console.log( $scope.hjfimgs);
 		  });
   
->>>>>>> branch 'master' of https://github.com/yaoyunchou/sfysj.git
+
 		   $scope.orderProp = 'age';
   }]);  
  
