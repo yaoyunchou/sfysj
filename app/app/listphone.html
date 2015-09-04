@@ -17,7 +17,7 @@
 	    		
 	    </script>
 	</head>
-<<<<<<< HEAD
+
 <body ng-controller="PhoneListCtrl">
   serch: <input type="text" ng-model="seach" name="" id="" value="" />
   Sort by:
@@ -25,7 +25,7 @@
   <option value="name">Alphabetical</option>
   <option value="age">Newest</option>
 </select>
-=======
+
 <body ng-controller="BannerCtrl">
   serch: <input type="text" ng-model="seach" name="" id="" value="" />
   Sort by:
@@ -37,19 +37,19 @@
 
   
   
->>>>>>> branch 'master' of https://github.com/yaoyunchou/sfysj.git
+
   <ul>
-<<<<<<< HEAD
+
     <li ng-repeat="phone in phones| filter:seach|orderBy:orderProp">
       {{phone.name}}
     <p>{{phone.snippet}}</p>
     <p>{{phone.age}}</p>
-=======
+
     <li ng-repeat="img in hjfimgs| filter:seach">
       {{img.banner_id}}
     <img ng-src={{img.image_resource_url}}   /> 
        <p>{{img.image_name}}</p>
->>>>>>> branch 'master' of https://github.com/yaoyunchou/sfysj.git
+
     </li>
   </ul>
   
