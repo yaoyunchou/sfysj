@@ -27,6 +27,7 @@ $(window).on('resize',function(){
 	
 });
 
+
 /*这个是加载完毕后运行*/
 window.onload=function(){
     $(".loading").hide();
