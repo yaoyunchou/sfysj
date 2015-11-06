@@ -32,7 +32,7 @@ $(window).on('resize',function(){
 window.onload=function(){
     $(".loading").hide();
     $().yaotoch();
-   
+     window.angular.element(document).find("head").prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}');  
     
      
 }

@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>身份认证</title>
+    
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+</head>
+<body>
+	   <header class="header">
+	   	   <a class="icon" href="rigester.html"><img src="../img/a001.png"/></a>
+	   	  <span>身份认证</span>
+	   	  
+	   </header>
+	   <article class="fogetbox authenticationbox">
+	   	  <form action="" method="post">
+	   	  	
+	   	     <div class="forgetpass">
+	   	    	 <div class="tbrow borderbottom">
+	   	    	 	 <span>姓名</span><input  type="text" name="" id="" value="" placeholder="输入您的真实姓名"  class="repassword "/>
+	   	    	 </div>
+	   	    	
+	   	         <span>身份证</span><input type='number' name="" id="" value="" placeholder="输入您的身份证号"  class="repassword"/> 
+	   	   
+	   	        
+	   	     </div>
+	   	     <p>为了您的账户安排请填入本人的信息 </p>
+	   	   
+	   	     <button class="loginsim margintop4e">提交认证</button>
+	   	  </form>
+	   	 
+	   </article>
+	    <div class="bttom">
+	   	
+	   </div>
+	   
+</body>
+<script src="../sea-modules/seajs/sea.js" type="text/javascript" charset="utf-8"></script>
+	  <script type="text/javascript">
+		seajs.config({
+	    	    base:"../sea-modules",
+	    	    alias:{
+	    	    	"jquery": "jquery/jquery.js",
+	    	    	"ag": "angular/angular.js"
+	    	    	
+	    	    }
+	    	});
+	    	seajs.use(["common/base","common/loginController"]);
+	</script> 
+</html>

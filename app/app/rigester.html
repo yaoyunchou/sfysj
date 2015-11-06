@@ -5,12 +5,12 @@
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>注册</title>
     
-    <link rel="stylesheet" type="text/css" href="css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
 </head>
 <body>
 	   <header class="header">
-	   	   <a class="icon" href="login.html"><img src="img/a001.png"/></a>
+	   	   <a class="icon" href="login.html"><img src="../img/a001.png"/></a>
 	   	  <span>注册</span>
 	   	  
 	   </header>
@@ -32,8 +32,18 @@
 	    <div class="bttom">
 	   	
 	   </div>
-	   <script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
-       <script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+	   <script src="../sea-modules/seajs/sea.js" type="text/javascript" charset="utf-8"></script>
+	  <script type="text/javascript">
+		seajs.config({
+	    	    base:"../sea-modules",
+	    	    alias:{
+	    	    	"jquery": "jquery/jquery.js",
+	    	    	"ag": "angular/angular.js"
+	    	    	
+	    	    }
+	    	});
+	    	seajs.use(["common/base","common/loginController"]);
+	</script> 
 </body>
 
 </html>

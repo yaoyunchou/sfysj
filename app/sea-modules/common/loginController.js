@@ -54,10 +54,5 @@ define(function(require,exports,module){
           }
 		
   }]);
-<<<<<<< HEAD
-      window.angular.element(document).find("head").prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}');
-  
-=======
     
->>>>>>> 4d33791f8ce596575b27d1c0ec23340a200f074f
 });
