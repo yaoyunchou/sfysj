@@ -1,0 +1,25 @@
+.hexagon {
+  width: 100px;
+  height: 55px;
+  background: red;
+  margin: 150px auto;
+  position: relative; }
+  .hexagon:before, .hexagon:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0; }
+  .hexagon:before {
+    top: -25px;
+    left: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 25px solid red; }
+  .hexagon:after {
+    bottom: -25px;
+    left: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 25px solid red; }
+
+/*# sourceMappingURL=yao160731.css.map */

@@ -1,0 +1,393 @@
+/* styles */
+html {
+  background-size: cover;
+  min-height: 100%; }
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  text-align: center; }
+
+p {
+  margin: 0;
+  padding: 1em 0 0;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: sans-serif;
+  color: #fff; }
+
+.polygon::after {
+  font: 32px sans-serif;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; }
+
+.polygon {
+  display: inline-block;
+  width: 128px;
+  height: 128px; }
+
+.polygon:nth-of-type(1)::after {
+  content: "4"; }
+
+.borders .polygon:nth-of-type(1) {
+  position: relative;
+  height: 160px;
+  width: 160px; }
+  .borders .polygon:nth-of-type(1) div {
+    /* + 1.5 to account for anti-aliasing */
+    border-top: 64px solid #c00;
+    border-left: 65px solid transparent;
+    border-right: 65px solid transparent;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: 50% 100%; }
+    .borders .polygon:nth-of-type(1) div:nth-child(0) {
+      transform: translate(-50%, -100%) rotate(0deg); }
+    .borders .polygon:nth-of-type(1) div:nth-child(1) {
+      transform: translate(-50%, -100%) rotate(90deg); }
+    .borders .polygon:nth-of-type(1) div:nth-child(2) {
+      transform: translate(-50%, -100%) rotate(180deg); }
+    .borders .polygon:nth-of-type(1) div:nth-child(3) {
+      transform: translate(-50%, -100%) rotate(270deg); }
+    .borders .polygon:nth-of-type(1) div:nth-child(4) {
+      transform: translate(-50%, -100%) rotate(360deg); }
+
+.polygon:nth-of-type(2)::after {
+  content: "5"; }
+
+.borders .polygon:nth-of-type(2) {
+  position: relative;
+  height: 160px;
+  width: 160px; }
+  .borders .polygon:nth-of-type(2) div {
+    /* + 1.5 to account for anti-aliasing */
+    border-top: 64px solid #c00;
+    border-left: 47.49872px solid transparent;
+    border-right: 47.49872px solid transparent;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: 50% 100%; }
+    .borders .polygon:nth-of-type(2) div:nth-child(0) {
+      transform: translate(-50%, -100%) rotate(0deg); }
+    .borders .polygon:nth-of-type(2) div:nth-child(1) {
+      transform: translate(-50%, -100%) rotate(72deg); }
+    .borders .polygon:nth-of-type(2) div:nth-child(2) {
+      transform: translate(-50%, -100%) rotate(144deg); }
+    .borders .polygon:nth-of-type(2) div:nth-child(3) {
+      transform: translate(-50%, -100%) rotate(216deg); }
+    .borders .polygon:nth-of-type(2) div:nth-child(4) {
+      transform: translate(-50%, -100%) rotate(288deg); }
+    .borders .polygon:nth-of-type(2) div:nth-child(5) {
+      transform: translate(-50%, -100%) rotate(360deg); }
+
+.polygon:nth-of-type(3)::after {
+  content: "6"; }
+
+.borders .polygon:nth-of-type(3) {
+  position: relative;
+  height: 160px;
+  width: 160px; }
+  .borders .polygon:nth-of-type(3) div {
+    /* + 1.5 to account for anti-aliasing */
+    border-top: 64px solid #c00;
+    border-left: 37.95042px solid transparent;
+    border-right: 37.95042px solid transparent;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: 50% 100%; }
+    .borders .polygon:nth-of-type(3) div:nth-child(0) {
+      transform: translate(-50%, -100%) rotate(0deg); }
+    .borders .polygon:nth-of-type(3) div:nth-child(1) {
+      transform: translate(-50%, -100%) rotate(60deg); }
+    .borders .polygon:nth-of-type(3) div:nth-child(2) {
+      transform: translate(-50%, -100%) rotate(120deg); }
+    .borders .polygon:nth-of-type(3) div:nth-child(3) {
+      transform: translate(-50%, -100%) rotate(180deg); }
+    .borders .polygon:nth-of-type(3) div:nth-child(4) {
+      transform: translate(-50%, -100%) rotate(240deg); }
+    .borders .polygon:nth-of-type(3) div:nth-child(5) {
+      transform: translate(-50%, -100%) rotate(300deg); }
+    .borders .polygon:nth-of-type(3) div:nth-child(6) {
+      transform: translate(-50%, -100%) rotate(360deg); }
+
+.polygon:nth-of-type(4)::after {
+  content: "7"; }
+
+.borders .polygon:nth-of-type(4) {
+  position: relative;
+  height: 160px;
+  width: 160px; }
+  .borders .polygon:nth-of-type(4) div {
+    /* + 1.5 to account for anti-aliasing */
+    border-top: 64px solid #c00;
+    border-left: 31.82078px solid transparent;
+    border-right: 31.82078px solid transparent;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: 50% 100%; }
+    .borders .polygon:nth-of-type(4) div:nth-child(0) {
+      transform: translate(-50%, -100%) rotate(0deg); }
+    .borders .polygon:nth-of-type(4) div:nth-child(1) {
+      transform: translate(-50%, -100%) rotate(51.42857deg); }
+    .borders .polygon:nth-of-type(4) div:nth-child(2) {
+      transform: translate(-50%, -100%) rotate(102.85714deg); }
+    .borders .polygon:nth-of-type(4) div:nth-child(3) {
+      transform: translate(-50%, -100%) rotate(154.28571deg); }
+    .borders .polygon:nth-of-type(4) div:nth-child(4) {
+      transform: translate(-50%, -100%) rotate(205.71429deg); }
+    .borders .polygon:nth-of-type(4) div:nth-child(5) {
+      transform: translate(-50%, -100%) rotate(257.14286deg); }
+    .borders .polygon:nth-of-type(4) div:nth-child(6) {
+      transform: translate(-50%, -100%) rotate(308.57143deg); }
+    .borders .polygon:nth-of-type(4) div:nth-child(7) {
+      transform: translate(-50%, -100%) rotate(360deg); }
+
+.polygon:nth-of-type(5)::after {
+  content: "8"; }
+
+.borders .polygon:nth-of-type(5) {
+  position: relative;
+  height: 160px;
+  width: 160px; }
+  .borders .polygon:nth-of-type(5) div {
+    /* + 1.5 to account for anti-aliasing */
+    border-top: 64px solid #c00;
+    border-left: 27.50967px solid transparent;
+    border-right: 27.50967px solid transparent;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: 50% 100%; }
+    .borders .polygon:nth-of-type(5) div:nth-child(0) {
+      transform: translate(-50%, -100%) rotate(0deg); }
+    .borders .polygon:nth-of-type(5) div:nth-child(1) {
+      transform: translate(-50%, -100%) rotate(45deg); }
+    .borders .polygon:nth-of-type(5) div:nth-child(2) {
+      transform: translate(-50%, -100%) rotate(90deg); }
+    .borders .polygon:nth-of-type(5) div:nth-child(3) {
+      transform: translate(-50%, -100%) rotate(135deg); }
+    .borders .polygon:nth-of-type(5) div:nth-child(4) {
+      transform: translate(-50%, -100%) rotate(180deg); }
+    .borders .polygon:nth-of-type(5) div:nth-child(5) {
+      transform: translate(-50%, -100%) rotate(225deg); }
+    .borders .polygon:nth-of-type(5) div:nth-child(6) {
+      transform: translate(-50%, -100%) rotate(270deg); }
+    .borders .polygon:nth-of-type(5) div:nth-child(7) {
+      transform: translate(-50%, -100%) rotate(315deg); }
+    .borders .polygon:nth-of-type(5) div:nth-child(8) {
+      transform: translate(-50%, -100%) rotate(360deg); }
+
+.polygon:nth-of-type(6)::after {
+  content: "9"; }
+
+.borders .polygon:nth-of-type(6) {
+  position: relative;
+  height: 160px;
+  width: 160px; }
+  .borders .polygon:nth-of-type(6) div {
+    /* + 1.5 to account for anti-aliasing */
+    border-top: 64px solid #c00;
+    border-left: 24.29409px solid transparent;
+    border-right: 24.29409px solid transparent;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: 50% 100%; }
+    .borders .polygon:nth-of-type(6) div:nth-child(0) {
+      transform: translate(-50%, -100%) rotate(0deg); }
+    .borders .polygon:nth-of-type(6) div:nth-child(1) {
+      transform: translate(-50%, -100%) rotate(40deg); }
+    .borders .polygon:nth-of-type(6) div:nth-child(2) {
+      transform: translate(-50%, -100%) rotate(80deg); }
+    .borders .polygon:nth-of-type(6) div:nth-child(3) {
+      transform: translate(-50%, -100%) rotate(120deg); }
+    .borders .polygon:nth-of-type(6) div:nth-child(4) {
+      transform: translate(-50%, -100%) rotate(160deg); }
+    .borders .polygon:nth-of-type(6) div:nth-child(5) {
+      transform: translate(-50%, -100%) rotate(200deg); }
+    .borders .polygon:nth-of-type(6) div:nth-child(6) {
+      transform: translate(-50%, -100%) rotate(240deg); }
+    .borders .polygon:nth-of-type(6) div:nth-child(7) {
+      transform: translate(-50%, -100%) rotate(280deg); }
+    .borders .polygon:nth-of-type(6) div:nth-child(8) {
+      transform: translate(-50%, -100%) rotate(320deg); }
+    .borders .polygon:nth-of-type(6) div:nth-child(9) {
+      transform: translate(-50%, -100%) rotate(360deg); }
+
+.polygon:nth-of-type(7)::after {
+  content: "10"; }
+
+.borders .polygon:nth-of-type(7) {
+  position: relative;
+  height: 160px;
+  width: 160px; }
+  .borders .polygon:nth-of-type(7) div {
+    /* + 1.5 to account for anti-aliasing */
+    border-top: 64px solid #c00;
+    border-left: 21.79486px solid transparent;
+    border-right: 21.79486px solid transparent;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: 50% 100%; }
+    .borders .polygon:nth-of-type(7) div:nth-child(0) {
+      transform: translate(-50%, -100%) rotate(0deg); }
+    .borders .polygon:nth-of-type(7) div:nth-child(1) {
+      transform: translate(-50%, -100%) rotate(36deg); }
+    .borders .polygon:nth-of-type(7) div:nth-child(2) {
+      transform: translate(-50%, -100%) rotate(72deg); }
+    .borders .polygon:nth-of-type(7) div:nth-child(3) {
+      transform: translate(-50%, -100%) rotate(108deg); }
+    .borders .polygon:nth-of-type(7) div:nth-child(4) {
+      transform: translate(-50%, -100%) rotate(144deg); }
+    .borders .polygon:nth-of-type(7) div:nth-child(5) {
+      transform: translate(-50%, -100%) rotate(180deg); }
+    .borders .polygon:nth-of-type(7) div:nth-child(6) {
+      transform: translate(-50%, -100%) rotate(216deg); }
+    .borders .polygon:nth-of-type(7) div:nth-child(7) {
+      transform: translate(-50%, -100%) rotate(252deg); }
+    .borders .polygon:nth-of-type(7) div:nth-child(8) {
+      transform: translate(-50%, -100%) rotate(288deg); }
+    .borders .polygon:nth-of-type(7) div:nth-child(9) {
+      transform: translate(-50%, -100%) rotate(324deg); }
+    .borders .polygon:nth-of-type(7) div:nth-child(10) {
+      transform: translate(-50%, -100%) rotate(360deg); }
+
+.polygon:nth-of-type(8)::after {
+  content: "11"; }
+
+.borders .polygon:nth-of-type(8) {
+  position: relative;
+  height: 160px;
+  width: 160px; }
+  .borders .polygon:nth-of-type(8) div {
+    /* + 1.5 to account for anti-aliasing */
+    border-top: 64px solid #c00;
+    border-left: 19.7921px solid transparent;
+    border-right: 19.7921px solid transparent;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: 50% 100%; }
+    .borders .polygon:nth-of-type(8) div:nth-child(0) {
+      transform: translate(-50%, -100%) rotate(0deg); }
+    .borders .polygon:nth-of-type(8) div:nth-child(1) {
+      transform: translate(-50%, -100%) rotate(32.72727deg); }
+    .borders .polygon:nth-of-type(8) div:nth-child(2) {
+      transform: translate(-50%, -100%) rotate(65.45455deg); }
+    .borders .polygon:nth-of-type(8) div:nth-child(3) {
+      transform: translate(-50%, -100%) rotate(98.18182deg); }
+    .borders .polygon:nth-of-type(8) div:nth-child(4) {
+      transform: translate(-50%, -100%) rotate(130.90909deg); }
+    .borders .polygon:nth-of-type(8) div:nth-child(5) {
+      transform: translate(-50%, -100%) rotate(163.63636deg); }
+    .borders .polygon:nth-of-type(8) div:nth-child(6) {
+      transform: translate(-50%, -100%) rotate(196.36364deg); }
+    .borders .polygon:nth-of-type(8) div:nth-child(7) {
+      transform: translate(-50%, -100%) rotate(229.09091deg); }
+    .borders .polygon:nth-of-type(8) div:nth-child(8) {
+      transform: translate(-50%, -100%) rotate(261.81818deg); }
+    .borders .polygon:nth-of-type(8) div:nth-child(9) {
+      transform: translate(-50%, -100%) rotate(294.54545deg); }
+    .borders .polygon:nth-of-type(8) div:nth-child(10) {
+      transform: translate(-50%, -100%) rotate(327.27273deg); }
+    .borders .polygon:nth-of-type(8) div:nth-child(11) {
+      transform: translate(-50%, -100%) rotate(360deg); }
+
+.polygon:nth-of-type(9)::after {
+  content: "12"; }
+
+.borders .polygon:nth-of-type(9) {
+  position: relative;
+  height: 160px;
+  width: 160px; }
+  .borders .polygon:nth-of-type(9) div {
+    /* + 1.5 to account for anti-aliasing */
+    border-top: 64px solid #c00;
+    border-left: 18.14875px solid transparent;
+    border-right: 18.14875px solid transparent;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: 50% 100%; }
+    .borders .polygon:nth-of-type(9) div:nth-child(0) {
+      transform: translate(-50%, -100%) rotate(0deg); }
+    .borders .polygon:nth-of-type(9) div:nth-child(1) {
+      transform: translate(-50%, -100%) rotate(30deg); }
+    .borders .polygon:nth-of-type(9) div:nth-child(2) {
+      transform: translate(-50%, -100%) rotate(60deg); }
+    .borders .polygon:nth-of-type(9) div:nth-child(3) {
+      transform: translate(-50%, -100%) rotate(90deg); }
+    .borders .polygon:nth-of-type(9) div:nth-child(4) {
+      transform: translate(-50%, -100%) rotate(120deg); }
+    .borders .polygon:nth-of-type(9) div:nth-child(5) {
+      transform: translate(-50%, -100%) rotate(150deg); }
+    .borders .polygon:nth-of-type(9) div:nth-child(6) {
+      transform: translate(-50%, -100%) rotate(180deg); }
+    .borders .polygon:nth-of-type(9) div:nth-child(7) {
+      transform: translate(-50%, -100%) rotate(210deg); }
+    .borders .polygon:nth-of-type(9) div:nth-child(8) {
+      transform: translate(-50%, -100%) rotate(240deg); }
+    .borders .polygon:nth-of-type(9) div:nth-child(9) {
+      transform: translate(-50%, -100%) rotate(270deg); }
+    .borders .polygon:nth-of-type(9) div:nth-child(10) {
+      transform: translate(-50%, -100%) rotate(300deg); }
+    .borders .polygon:nth-of-type(9) div:nth-child(11) {
+      transform: translate(-50%, -100%) rotate(330deg); }
+    .borders .polygon:nth-of-type(9) div:nth-child(12) {
+      transform: translate(-50%, -100%) rotate(360deg); }
+
+.polygon:nth-of-type(10)::after {
+  content: "13"; }
+
+.borders .polygon:nth-of-type(10) {
+  position: relative;
+  height: 160px;
+  width: 160px; }
+  .borders .polygon:nth-of-type(10) div {
+    /* + 1.5 to account for anti-aliasing */
+    border-top: 64px solid #c00;
+    border-left: 16.77458px solid transparent;
+    border-right: 16.77458px solid transparent;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: 50% 100%; }
+    .borders .polygon:nth-of-type(10) div:nth-child(0) {
+      transform: translate(-50%, -100%) rotate(0deg); }
+    .borders .polygon:nth-of-type(10) div:nth-child(1) {
+      transform: translate(-50%, -100%) rotate(27.69231deg); }
+    .borders .polygon:nth-of-type(10) div:nth-child(2) {
+      transform: translate(-50%, -100%) rotate(55.38462deg); }
+    .borders .polygon:nth-of-type(10) div:nth-child(3) {
+      transform: translate(-50%, -100%) rotate(83.07692deg); }
+    .borders .polygon:nth-of-type(10) div:nth-child(4) {
+      transform: translate(-50%, -100%) rotate(110.76923deg); }
+    .borders .polygon:nth-of-type(10) div:nth-child(5) {
+      transform: translate(-50%, -100%) rotate(138.46154deg); }
+    .borders .polygon:nth-of-type(10) div:nth-child(6) {
+      transform: translate(-50%, -100%) rotate(166.15385deg); }
+    .borders .polygon:nth-of-type(10) div:nth-child(7) {
+      transform: translate(-50%, -100%) rotate(193.84615deg); }
+    .borders .polygon:nth-of-type(10) div:nth-child(8) {
+      transform: translate(-50%, -100%) rotate(221.53846deg); }
+    .borders .polygon:nth-of-type(10) div:nth-child(9) {
+      transform: translate(-50%, -100%) rotate(249.23077deg); }
+    .borders .polygon:nth-of-type(10) div:nth-child(10) {
+      transform: translate(-50%, -100%) rotate(276.92308deg); }
+    .borders .polygon:nth-of-type(10) div:nth-child(11) {
+      transform: translate(-50%, -100%) rotate(304.61538deg); }
+    .borders .polygon:nth-of-type(10) div:nth-child(12) {
+      transform: translate(-50%, -100%) rotate(332.30769deg); }
+    .borders .polygon:nth-of-type(10) div:nth-child(13) {
+      transform: translate(-50%, -100%) rotate(360deg); }
+
+/*# sourceMappingURL=yao160731V2.css.map */
