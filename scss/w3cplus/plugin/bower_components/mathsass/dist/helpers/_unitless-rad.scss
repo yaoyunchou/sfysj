@@ -7,7 +7,7 @@
     } @else if unit($angle) == deg {
         @return deg-to-rad($angle, false);
     } @else if type-of($angle) != number or not unitless($angle) {
-        @warn "#{ $angle } is not a valid number.";
+        @warn "#{$angle} is not a valid number.";
         @return $angle;
     }
 }
