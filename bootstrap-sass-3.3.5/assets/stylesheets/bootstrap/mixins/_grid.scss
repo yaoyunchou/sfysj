@@ -3,6 +3,11 @@
 // Generate semantic grid columns with these mixins.
 
 // Centered container element
+
+/*
+*学习笔记 测试 bootstrap 0825
+*1.percentage 是可以将一个值转换到有一个百分号；
+*/
 @mixin container-fixed($gutter: $grid-gutter-width) {
   margin-right: auto;
   margin-left: auto;

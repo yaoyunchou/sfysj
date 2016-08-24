@@ -1,0 +1,75 @@
+@charset "UTF-8";
+@import  "../../plugin/bower_components/mathsass/dist/math";
+
+@mixin border-polygon($num, $color: #000, $radius: 64px) {
+	position: relative;
+	height: 2.5*$radius;
+	width: 2.5*$radius;
+
+	div {
+		$halfWidth: tan($PI/$num) * $radius + 1; /* + 1.5 to account for anti-aliasing */
+		//$halfWidth: tan(0.7854);
+		border-top: #{$radius} solid $color;
+		border-left: #{$halfWidth} solid transparent;
+		border-right: #{$halfWidth} solid transparent;
+
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform-origin: 50% 100%;
+
+		@for $i from 0 through $num {
+			&:nth-child(#{$i}) {
+				transform: translate(-50%, -100%) rotate(360deg / $num * $i);
+			}
+		}
+	}
+}
+
+
+
+
+
+/* styles */
+html {
+	background-size: cover;
+	min-height: 100%;
+}
+body {
+	margin: 0;
+	height: 100vh;
+	background: rgba(0,0,0,.75);
+	text-align: center;
+}
+p {
+	margin: 0;
+	padding: 1em 0 0;
+	font-size: 18px;
+	font-weight: 700;
+	font-family: sans-serif;
+	color: #fff;
+}
+
+.polygon::after {
+	font: 32px sans-serif;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	color: #fff;
+}
+.polygon {
+	display: inline-block;
+	width: 128px;
+	height: 128px;
+}
+$maxNum: 10;
+@for $i from 1 through $maxNum {
+	$num: $i + 3;
+	.polygon:nth-of-type(#{$i})::after {
+		content: "#{$num}";
+	}
+	.borders .polygon:nth-of-type(#{$i}) {
+		@include border-polygon($num, #c00);
+	}
+}
