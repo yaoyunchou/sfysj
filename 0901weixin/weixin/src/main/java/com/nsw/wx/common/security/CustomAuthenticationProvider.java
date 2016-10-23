@@ -1,0 +1,71 @@
+package com.nsw.wx.common.security;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AccountExpiredException;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.LockedException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+/**
+ * @author wukang
+ * @Copyright: www.nsw88.com Inc. All rights reserved. 
+ * @date 2015年9月21日 下午3:06:47
+ * @Description: 自定义认证处理
+ */
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+
+	public static Logger logger = Logger.getLogger(CustomAccessDecisionManager.class);
+
+	public CustomAuthenticationProvider(){
+		logger.info("自定义认证处理");
+	}
+	
+	@Autowired
+	private UserDetailsService currentUserDetailsService;
+	
+	@Override
+	public Authentication authenticate(Authentication authentication)
+			throws AuthenticationException {
+        UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) authentication;  
+        String userName=token.getName();
+        UserDetails userDetails = null;  
+        if(userName != null) {  
+            userDetails = currentUserDetailsService.loadUserByUsername(userName);  
+        }  
+        
+        if(userDetails == null) {  
+            throw new UsernameNotFoundException("用户名/密码无效！");  
+        }else if (!userDetails.isEnabled()){  
+            throw new DisabledException("用户已被禁用！");  
+        }else if (!userDetails.isAccountNonExpired()) {  
+            throw new AccountExpiredException("账号已过期！");  
+        }else if (!userDetails.isAccountNonLocked()) {  
+            throw new LockedException("账号已被锁定！");  
+        }else if (!userDetails.isCredentialsNonExpired()) {  
+            throw new LockedException("凭证已过期！");  
+        }  
+        //数据库用户的密码  
+        String password = userDetails.getPassword();  
+        //与authentication里面的credentials相比较  
+        if(!password.equals(token.getCredentials())) {  
+            throw new BadCredentialsException("用户名/密码无效！");  
+        }  
+        
+      //授权
+	 return new UsernamePasswordAuthenticationToken(userDetails, password,userDetails.getAuthorities());
+	}
+
+	
+	public boolean supports(Class<?> authentication) {
+		  //返回true后才会执行上面的authenticate方法,这步能确保authentication能正确转换类型  
+        return UsernamePasswordAuthenticationToken.class.equals(authentication);  
+	}
+}

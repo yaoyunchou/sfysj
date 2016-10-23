@@ -1,0 +1,135 @@
+
+[
+	{
+    "code" : "account_add",
+    "roleCode" : [ 
+        "Role_qy_admin", 
+        "Role_pt_shkf", 
+        "Role_pt_ch"
+    ],
+    "url" : "/account/wxAccountInfo",
+    "method" : "POST",
+    "desc" : "添加公众号"
+	},
+	{
+    "code" : "account_update",
+    "roleCode" : [ 
+        "Role_qy_admin", 
+        "Role_pt_shkf", 
+        "Role_pt_ch"
+    ],
+    "url" : "/account/wxAccountInfo",
+    "method" : "PUT",
+    "desc" : "修改公众号"
+	},
+	{
+    "code" : "account_del",
+    "roleCode" : [ 
+        "Role_qy_admin", 
+        "Role_pt_shkf", 
+        "Role_pt_ch"
+    ],
+    "url" : "/account/wxAccountInfo",
+    "method" : "DELETE",
+    "desc" : "删除公众号"
+	},
+	{
+    "code" : "massmsg_del",
+    "roleCode" : [ 
+        "Role_qy_admin", 
+        "Role_pt_shkf", 
+        "Role_pt_ch"
+    ],
+    "url" : "/massmsg/sendMassMsg",
+    "method" : "DELETE",
+    "desc" : "删除群发信息"
+	},
+	{
+    "code" : "massmsg_add",
+    "roleCode" : [ 
+        "Role_qy_admin", 
+        "Role_pt_shkf", 
+        "Role_pt_ch"
+    ],
+    "url" : "/massmsg/sendMassMsg",
+    "method" : "POST",
+    "desc" : "群发信息"
+	},
+	{
+    "code" : "fansGroup_add",
+    "roleCode" : [ 
+        "Role_qy_admin", 
+        "Role_pt_shkf", 
+        "Role_pt_ch"
+    ],
+    "url" : "/fans/fansGroup",
+    "method" : "POST",
+    "desc" : "添加分组"
+	},
+	{
+    "code" : "fansGroup_del",
+    "roleCode" : [ 
+        "Role_qy_admin", 
+        "Role_pt_shkf", 
+        "Role_pt_ch"
+    ],
+    "url" : "/fans/fansGroup",
+    "method" : "DELETE",
+    "desc" : "删除分组"
+	},
+	{
+    "code" : "fansGroup_update",
+    "roleCode" : [ 
+        "Role_qy_admin", 
+        "Role_pt_shkf", 
+        "Role_pt_ch"
+    ],
+    "url" : "/fans/fansGroup",
+    "method" : "PUT",
+    "desc" : "修改分组"
+	},
+	{
+    "code" : "fans_update",
+    "roleCode" : [ 
+        "Role_qy_admin", 
+        "Role_pt_shkf", 
+        "Role_pt_ch"
+    ],
+    "url" : "/fans/fansInfo",
+    "method" : "PUT",
+    "desc" : "修改粉丝备注"
+	},
+	{
+    "code" : "keyWord_add",
+    "roleCode" : [ 
+        "Role_qy_admin", 
+        "Role_pt_shkf", 
+        "Role_pt_ch"
+    ],
+    "url" : "/keyWord/reply",
+    "method" : "POST",
+    "desc" : "添加关键字"
+	},
+	{
+    "code" : "keyWord_update",
+    "roleCode" : [ 
+        "Role_qy_admin", 
+        "Role_pt_shkf", 
+        "Role_pt_ch"
+    ],
+    "url" : "/keyWord/reply",
+    "method" : "PUT",
+    "desc" : "修改关键字"
+	},
+	{
+    "code" : "keyWord_del",
+    "roleCode" : [ 
+        "Role_qy_admin", 
+        "Role_pt_shkf", 
+        "Role_pt_ch"
+    ],
+    "url" : "/keyWord/reply",
+    "method" : "DELETE",
+    "desc" : "删除关键字"
+	}
+]

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-Title: wx
+Implementation-Version: 1.0
+Implementation-Vendor-Id: com.nsw.wx
+Build-Jdk: 1.7.0_71
+Built-By: yaoyc
+Created-By: Maven Integration for Eclipse
+Main-Class: com.nsw.wx.Application
+

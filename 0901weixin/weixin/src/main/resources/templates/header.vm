@@ -1,0 +1,16 @@
+<div class="top_line">
+	<div class="header">
+		<h1 class="nsw_logo">
+		    <a href="javascript:nsw.CommonUtil.wrapHref('/user/main');"></a>
+		</h1>
+		<div class="hd_r f_fr f_tar">
+			<div class="help_centre">
+			    <a href="javascript:nsw.CommonUtil.wrapHref('/user/main');">网站首页</a>
+			</div> 
+			<div class="manager_info">
+			    <a href="#" class="adm">$!user.userName 欢迎您的到来！</a>
+			    <a href="#" id="logout">退出</a>
+			</div>
+		</div>
+	</div>
+</div>

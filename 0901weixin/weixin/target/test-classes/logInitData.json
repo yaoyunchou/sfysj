@@ -1,0 +1,33 @@
+
+[
+	{
+		"operationCode":"menu_add",
+		"description" :"保存菜单"
+	}
+	,{
+		"operationCode":"menu_del",
+		"description" :"删除菜单"
+	},{
+		"operationCode":"massmsg_add",
+		"description" :"群发消息"
+	},{
+		"operationCode":"account_del",
+		"description" :"删除公众号"
+	},{
+		"operationCode":"account_add",
+		"description" :"添加公众号"
+	},{
+		"operationCode":"acount_edit",
+		"description" :"修改公众号"
+	},{
+		"operationCode":"unauthorized",
+		"description" :"公众号取消授权"
+	},{
+		"operationCode":"unauthorized",
+		"description" :"公众号授权"
+	},{
+		"operationCode":"authorized",
+		"description" :"公众号更新权限"
+	}
+	
+]

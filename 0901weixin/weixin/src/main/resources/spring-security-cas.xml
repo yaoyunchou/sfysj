@@ -1,0 +1,294 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+	<!-- Spring-Security 的配置      -->
+	
+	
+	<!-- springsecurity测试
+	https://github.com/rwinch/spring-security-test-blog/tree/master/src/test/java/org/springframework/security/test/context/showcase/service
+	API:http://xyz20003.iteye.com/blog/1744049
+	 -->
+
+   		<!-- 加载外部配置文件 -->
+	<beans:bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<beans:property name="locations">
+			<beans:list>
+			    <beans:value>classpath:application.properties</beans:value>
+				<beans:value>classpath:security-config.properties</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+
+
+	<!-- 自定义登录处理auto-config="true" -->
+	<http use-expressions="true" entry-point-ref="casAuthEntryPoint" servlet-api-provision="true" auto-config="true">
+		<!-- 会话管理   http://blog.csdn.net/lsbhjshyn/article/details/5870246
+		          http://ring-feng.iteye.com/blog/1121629
+		          http://aokunsang.iteye.com/blog/1944111
+		-->
+		<!-- 单用户登陆 -->
+		<session-management invalid-session-url="${casServer}/login?service=${cas_service}j_spring_cas_security_check" session-authentication-strategy-ref="sas">
+		</session-management>
+		
+		<logout   delete-cookies="JSESSIONID"  logout-success-url="/"    invalidate-session="true"/>  
+
+		<!-- 尝试访问没有权限的页面时跳转的页面 -->
+		<!--<access-denied-handler error-page="/403.jsp"/> -->
+		<!-- 自定义accessDeniedHandler -->
+		<access-denied-handler ref="customAccessDeniedHandler" />
+
+		<custom-filter ref="casAuthenticationFilter" position="CAS_FILTER" />
+
+		<!-- 自定义filter 必须包含authenticationManager,accessDecisionManager,securityMetadataSource三个属性 -->
+		<custom-filter ref="customFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+
+		<!-- 退出登录 -->
+		<logout invalidate-session="true" logout-success-url="${casServer}/login?service=${cas_service}j_spring_cas_security_check"
+			logout-url="/j_spring_security_logout" />
+			
+			<custom-filter ref="requestSingleLogoutFilter" before="LOGOUT_FILTER" />   
+            <custom-filter ref="singleLogoutFilter" before="CAS_FILTER" /> 
+			
+		<!--不受保护页面
+		<intercept-url pattern="/login.html" access="permitAll" /> -->
+		<intercept-url pattern="/**/publish-success-tip.html" access="permitAll" />
+		<intercept-url pattern="/**/*403.html" access="permitAll" />
+		<intercept-url pattern="/**/*.css" access="permitAll" />
+		<intercept-url pattern="/**/*.js" access="permitAll" />
+		<intercept-url pattern="/**/*.png" access="permitAll" />
+		<intercept-url pattern="/**/*.gif" access="permitAll" />
+		<intercept-url pattern="/**/*.jpg" access="permitAll" />
+		<intercept-url pattern="/**/*.jsp" access="permitAll" />
+		<intercept-url pattern="/**/*.swf" access="permitAll" />
+		<intercept-url pattern="/oauth/handle" access="permitAll" />
+		<intercept-url pattern="/oauth/authorCallback" access="permitAll" />
+		<intercept-url pattern="/msg/**/*" access="permitAll" />
+		<intercept-url pattern="/user/remoteSwitchProject" access="permitAll" />
+		<intercept-url pattern="/user/switchCmsProject" access="permitAll" />
+		<intercept-url pattern="/**/plugins/**" access="permitAll" />
+
+		
+		<intercept-url pattern="/newsPage/detail" access="permitAll" />
+		<!-- 下面的资源是需要认证才能访问的，若果这些资源在数据库不存在，不会进入投票器，直接进登录页面 -->
+		<intercept-url pattern="/**/*" access="isAuthenticated()" />
+	</http>
+	
+	<!-- 注销客户端 --> 
+    <beans:bean id="singleLogoutFilter" class="org.jasig.cas.client.session.SingleSignOutFilter" /> 
+    <!-- 注销服务器端 --> 
+    <beans:bean id="requestSingleLogoutFilter" class="org.springframework.security.web.authentication.logout.LogoutFilter"> 
+    <beans:constructor-arg value="${casServer}/logout?service=${casServer}/login?service=${cas_service}j_spring_cas_security_check"></beans:constructor-arg> 
+    <!-- 退出后返回系统，参数是service，不指定service则到cas登出成功页面 -->
+      <beans:constructor-arg> 
+         <beans:bean  class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler"/> 
+       </beans:constructor-arg> 
+       <beans:property name="filterProcessesUrl" value="/j_spring_cas_security_logout" /> 
+    </beans:bean> 
+
+    <!-- CAS认证切入点，声明cas服务器端登录的地址 -->  
+	<beans:bean id="casAuthEntryPoint"
+		class="org.springframework.security.cas.web.CasAuthenticationEntryPoint">
+		<beans:property name="loginUrl" value="${casServer}/login"></beans:property>
+		<beans:property name="serviceProperties" ref="serviceProperties"></beans:property>
+	</beans:bean>
+
+	<!-- spring security提供的用户登录验证 ，alias的值对应上面的ref="authenticationManager" -->
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider ref="casAuthenticationProvider">
+		</authentication-provider>
+	</authentication-manager>
+	
+
+ <!-- cas认证提供器，定义客户端的验证方式 -->  
+	<beans:bean id="casAuthenticationProvider" class="org.springframework.security.cas.authentication.CasAuthenticationProvider">
+	    <beans:property name="authenticationUserDetailsService" ref="authenticationUserDetailsService" />
+		<beans:property name="ticketValidator" ref="casTicketValidator" />
+		<beans:property name="serviceProperties" ref="serviceProperties" />
+		<beans:property name="key" value="id" />
+	</beans:bean>
+
+    <!-- 后缀  /j_spring_cas_security_check  cas登陆成功后返回校验地址 -->
+     <!--
+        你需要添加一个 ServiceProperties bean，到你的application context里。 这表现你的CAS服务。
+        这里的service必须是一个由CasAuthenticationFilter监控的URL。 这个sendRenew默认是false，但如果你的程序特别敏感就应该设置成true。 这个参数作用是，告诉CAS登录服务，一个单点登录没有到达。 否则，用户需要重新输入                他们的用户名和密码，来获得访问服务的权限。
+    -->
+	 <!-- 登录成功后的返回地址 -->  
+	 <!-- client服务的URL， j_spring_cas_security_check是security自己定义的一个filter-->  
+	<beans:bean id="serviceProperties" class="org.springframework.security.cas.ServiceProperties">
+		<beans:property name="service"
+			value="${cas_service}j_spring_cas_security_check" />
+		<beans:property name="sendRenew" value="false" />    <!-- 若设置为true，则不管用户是否已经经过认证，每次都需要重新登陆-->
+			
+	</beans:bean>
+
+   <!-- cas 认证过滤器 -->  
+	<beans:bean id="casAuthenticationFilter"
+		class="org.springframework.security.cas.web.CasAuthenticationFilter">
+		<beans:property name="authenticationManager" ref="authenticationManager" />
+        <beans:property name="authenticationSuccessHandler" ref="customAuthenticationSuccessHandler" />
+        <beans:property name="authenticationFailureHandler" ref="customAuthenticationFailureHandler" />
+        <beans:property name="filterProcessesUrl" value="/j_spring_cas_security_check" />  
+         <beans:property name="sessionAuthenticationStrategy" ref="sas"></beans:property>  
+	</beans:bean>
+	
+	
+	
+	<!-- ConcurrentSessionFilter过滤器配置(主要设置账户session过期路径) -->  
+<beans:bean id="concurrencyFilter" class="org.springframework.security.web.session.ConcurrentSessionFilter">  
+    <beans:property name="expiredUrl" value="${casServer}/logout?service=${casServer}/login?service=${cas_service}j_spring_cas_security_check"></beans:property>  
+    <beans:property name="sessionRegistry" ref="sessionRegistry"></beans:property>  
+</beans:bean>  
+<!-- ${casServer}/login?service=${cas_service}j_spring_cas_security_check -->
+<!-- ${casServer}/logout?service=${casServer}/login?service=${cas_service}j_spring_cas_security_check -->
+<!-- 设置exceptionIfMaximumExceeded=false，那么B用户会把A用户挤掉，A用户再点击页面，则会跳转到
+ConcurrentSessionFilter的expiredUrl路径。 -->
+ <beans:bean id="sas" class="org.springframework.security.web.authentication.session.ConcurrentSessionControlStrategy">  
+    <beans:property name="maximumSessions" value="10"></beans:property>  
+    <beans:property name="exceptionIfMaximumExceeded" value="false"></beans:property>  
+    <beans:constructor-arg name="sessionRegistry" ref="sessionRegistry"></beans:constructor-arg>  
+</beans:bean>  
+<beans:bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl"></beans:bean> 
+
+
+
+	<beans:bean id="casTicketValidator"
+		class="org.jasig.cas.client.validation.Cas20ServiceTicketValidator">
+		<beans:constructor-arg value="${casTicketServer}" />
+	</beans:bean>
+
+ <!-- org.springframework.security.core.userdetails.UserDetailsByNameServiceWrapper 
+	<beans:bean id="authenticationUserDetailsService"
+		class="org.springframework.security.cas.userdetails.GrantedAuthorityFromAssertionAttributesUserDetailsService">
+		<beans:constructor-arg>    
+       <beans:array>    
+        <beans:value>role</beans:value>    
+      </beans:array>    
+     </beans:constructor-arg>    
+	</beans:bean>
+-->
+
+  <beans:bean id="authenticationUserDetailsService" class="org.springframework.security.core.userdetails.UserDetailsByNameServiceWrapper">    
+      <beans:constructor-arg ref="customUserDetailsService" /> 
+    </beans:bean>  
+
+
+    <!-- 事件日志 -->  
+    <beans:bean id="loggerListener"  
+        class="org.springframework.security.authentication.event.LoggerListener" />  
+
+
+
+	<!-- 认证过滤器 -->
+	<beans:bean id="customFilter"
+		class="com.nsw.wx.common.security.CustomFilterSecurityInterceptor">
+		<beans:property name="authenticationManager" ref="authenticationManager" />
+		<beans:property name="accessDecisionManager" ref="customAccessDecisionManagerBean" />
+		<beans:property name="securityMetadataSource" ref="customSecurityMetadataSource" />
+	</beans:bean>
+
+
+
+	<!-- 访问决策器，决定某个用户（具有的角色）是否有足够的权限去访问某个资源 -->
+	<beans:bean id="customAccessDecisionManagerBean"
+		class="com.nsw.wx.common.security.CustomAccessDecisionManager">
+		<!-- 没有显式定义的资源都保护起来。该属性默认值为false -->
+		<beans:property name="allowIfAllAbstainDecisions"
+			value="false" />
+	</beans:bean>
+
+	<!-- 安全资源定义，即定义某一安全资源可以被哪些角色访问 -->
+	<beans:bean id="customSecurityMetadataSource"
+		class="com.nsw.wx.common.security.CustomSecurityMetadataSource">
+		<beans:constructor-arg>
+			<beans:ref bean="resourceService" />
+		</beans:constructor-arg>
+	</beans:bean>
+
+	<beans:bean id="resourceService" class="com.nsw.wx.common.security.ResourceServiceImpl" />
+
+	<!-- 对密码进行MD5编码 -->
+	<beans:bean
+		class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"
+		id="passwordEncoder" />
+
+	<!-- 登录成功后处理 -->
+	<beans:bean id="customAuthenticationSuccessHandler"
+		class="com.nsw.wx.common.security.CustomAuthenticationSuccessHandler">
+		<beans:property name="defaultTargetUrl" value="/app/index.html#/wechat/account"></beans:property><!-- 和service自动拼接的 -->
+		<beans:property name="session_timeOut_seconds" value="7200"></beans:property> <!-- session超时时间 -->
+	</beans:bean>
+
+	<!-- http请求验证失败后的处理 -->
+	<beans:bean id="customAuthenticationFailureHandler"
+		class="com.nsw.wx.common.security.CustomAuthenticationFailureHandler">
+		<beans:property name="defaultFailureUrl" value="${casServer}"></beans:property>
+		<beans:property name="maxTryCount" value="${maxTryCount}"></beans:property>
+	</beans:bean>
+
+	<!-- 访问拒拒绝处理 -->
+	<beans:bean id="customAccessDeniedHandler"
+		class="com.nsw.wx.common.security.CustomAccessDeniedHandler">
+		<beans:constructor-arg name="accessDeniedUrl"
+			value="${cas_service}403.html?denied=true"></beans:constructor-arg>
+	</beans:bean>
+
+	<!--SS默认拒绝处理类 <beans:bean id="accessDeniedHandler" class="org.springframework.security.web.access.AccessDeniedHandlerImpl"> 
+		<beans:property name="errorPage" value="/backend/admin/error403"/> </beans:bean> -->
+
+	<!-- 实现UserDetailsService接口进行登录认证 -->
+	<beans:bean id="customUserDetailsService"
+		class="com.nsw.wx.common.security.CustomUserDetailsService" />
+
+
+
+	<!-- 自定义错误信息 -->
+	<beans:bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<beans:property name="defaultEncoding" value="UTF-8" />
+		<beans:property name="basenames">
+			<beans:list>
+				<!-- 将自定义的放在Spring Security内置的之前 -->
+				<beans:value>classpath:messages</beans:value>
+				<beans:value>classpath:org/springframework/security/messages
+				</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+
+	<!-- 定时任务，定时刷新资源权限列表 -->
+	<!-- Scheduler的配置 Scheduler包含一个Trigger列表，每个Trigger表示一个作业
+	<beans:bean
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<beans:property name="triggers">
+			<beans:list>
+				<beans:ref bean="testTrigger" />
+			</beans:list>
+		</beans:property>
+		<beans:property name="autoStartup" value="true" />
+	</beans:bean>
+ -->
+	<!-- Trigger的配置 CronTriggerBean不支持Quartz2以上版本,已经被CronTriggerFactoryBean替代 
+	<beans:bean id="testTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<beans:property name="jobDetail" ref="testJobDetail" />
+		<beans:property name="cronExpression" value="0 15 10 * * ?" />每天10点15分触发
+	</beans:bean>
+-->
+	<!--JobDetail的配置
+	<beans:bean id="testJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<beans:property name="targetObject" ref="taskJob" />
+		<beans:property name="targetMethod" value="run" />
+		<beans:property name="concurrent" value="false" /> -->
+		<!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 
+	</beans:bean>
+--><!--
+	<beans:bean id="taskJob"
+		class="com.nsw.wx.common.security.MetadataSourceTaskScheduled" />
+	 业务类的配置 -->
+
+</beans:beans>  
